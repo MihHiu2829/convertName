@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="40dp"
+        android:inputType="text"
+        android:hint="Enter Fisrt Name"
+        android:padding="10dp"
+        android:layout_marginTop="80dp"
+        android:id="@+id/edt_fn"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="40dp"
+        android:padding="10dp"
+        android:inputType="text"
+        android:hint="Enter Last Name"
+        android:layout_marginTop="20dp"
+        android:id="@+id/edt_ln"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:layout_width="wrap_content"
+        android:id="@+id/SwC_01"
+        android:text="EN"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="Đảo ngựợc tên của bạn"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_height="wrap_content"/>
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="40dp"
+        android:padding="10dp"
+        android:id="@+id/edt_rs"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
