@@ -29,9 +29,9 @@ public class m001_VM extends ViewModel {
         return lastName;
     }
 
-    public MediatorLiveData<Object> fullnameLD()
+    public MediatorLiveData<String> fullnameLD()
     {
-        MediatorLiveData<Object> Mediator = new MediatorLiveData<>();
+        MediatorLiveData<String> Mediator = new MediatorLiveData<>();
 
         Observer<? super Object> handleName = new Observer<Object>() {
             @Override

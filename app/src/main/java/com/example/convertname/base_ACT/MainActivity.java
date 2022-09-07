@@ -22,6 +22,7 @@ public class MainActivity extends base_ACT<ActivityMainBinding, m001_VM>{
 //        binding.edtLn.setText(viewmodel.getLastName().getValue());
 //        binding.SwC01.setChecked(viewmodel.getIsEn().getValue());
 
+        // binding.edtFn.addTextChangedListenner(new TextWatcher()){} ;
         binding.edtFn.addTextChangedListener((new techChangeAfter() {
             @Override
             public void afterTextChanged(Editable editable) {
@@ -34,21 +35,25 @@ public class MainActivity extends base_ACT<ActivityMainBinding, m001_VM>{
                 MainActivity.this.update();
             }
         }) );
-        binding.SwC01.setOnCheckedChangeListener((compoundButton, b) -> {
-            update();
+        binding.SwC01.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                MainActivity.this.update();
+            }
         });
 
-        viewmodel.fullnameLD().observe(this, new Observer<Object>() {
+        viewmodel.fullnameLD().observe(this, new Observer<String>() {
             @Override
-            public void onChanged(Object o) {
+            public void onChanged(String o) {
                 binding.edtRs.setText(o.toString());
             }
         });
     }
 
     private void update() {
-        viewmodel.setInfo(binding.edtFn.getText().toString(),binding.edtFn.getText().toString(),binding.SwC01.isChecked());
-
+        viewmodel.setInfo(binding.edtFn.getText().toString(),
+                binding.edtLn.getText().toString(),
+                binding.SwC01.isChecked());
     }
 
     @Override
