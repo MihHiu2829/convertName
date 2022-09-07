@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.widget.CompoundButton;
 
 import com.example.convertname.R;
 import com.example.convertname.ViewModel.m001_VM;
@@ -18,6 +19,9 @@ public class MainActivity extends base_ACT<ActivityMainBinding, m001_VM>{
     protected void initViews() {
         binding.edtFn.addTextChangedListener(((techChangeAfter) editable -> update()) );
         binding.edtLn.addTextChangedListener(((techChangeAfter) editable -> update()) );
+        binding.SwC01.setOnCheckedChangeListener((compoundButton, b) -> {
+            update();
+        });
     }
 
     private void update() {
