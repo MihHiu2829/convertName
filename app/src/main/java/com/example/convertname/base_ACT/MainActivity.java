@@ -1,6 +1,7 @@
 package com.example.convertname.base_ACT;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -17,10 +18,31 @@ public class MainActivity extends base_ACT<ActivityMainBinding, m001_VM>{
 
     @Override
     protected void initViews() {
-        binding.edtFn.addTextChangedListener(((techChangeAfter) editable -> update()) );
-        binding.edtLn.addTextChangedListener(((techChangeAfter) editable -> update()) );
+//        binding.edtFn.setText(viewmodel.getFirstName().getValue());
+//        binding.edtLn.setText(viewmodel.getLastName().getValue());
+//        binding.SwC01.setChecked(viewmodel.getIsEn().getValue());
+
+        binding.edtFn.addTextChangedListener((new techChangeAfter() {
+            @Override
+            public void afterTextChanged(Editable editable) {
+                MainActivity.this.update();
+            }
+        }) );
+        binding.edtLn.addTextChangedListener((new techChangeAfter() {
+            @Override
+            public void afterTextChanged(Editable editable) {
+                MainActivity.this.update();
+            }
+        }) );
         binding.SwC01.setOnCheckedChangeListener((compoundButton, b) -> {
             update();
+        });
+
+        viewmodel.fullnameLD().observe(this, new Observer<Object>() {
+            @Override
+            public void onChanged(Object o) {
+                binding.edtRs.setText(o.toString());
+            }
         });
     }
 
